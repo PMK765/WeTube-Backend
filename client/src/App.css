@@ -1,3 +1,31 @@
+.header {
+  background-color:rgb(238, 85, 58);
+  background-image: linear-gradient(to right,#8E0E00, #1F1C18);
+  height: 80px;
+
+}
+
+.title {
+  color:white;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.video_groups{
+  height: 650px;
+  
+}
+
+.group_window{
+   border-style: solid;
+   border-width: 1px;
+}
+.video_window{
+  border-style: solid;
+  border-width: 1px;
+  /*background-color: palevioletred;*/
+}
+
 .App {
   text-align: center;
 }

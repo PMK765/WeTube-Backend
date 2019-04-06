@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Container, Row, Col } from 'reactstrap';
 
 class App extends Component {
 state = {
@@ -27,14 +28,22 @@ state = {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        // Render the newly fetched data inside of this.state.data 
-        <p className="App-intro">{this.state.data}</p>
-      </div>
+      <Container className ="mainContainer" fluid>
+        <Row  className ="header">
+          <Col>
+          <h1 className = "title"> Welcome to WeTube!</h1>
+          </Col>
+        </Row>
+        <Row className = "video_groups">
+          <Col className = "group_window" xs="2">.col</Col>
+          
+          <Col className = "video_window" xs="10">.col</Col>
+          
+        </Row>
+        <Row>
+          <Col>.col</Col>
+        </Row>
+      </Container>
     );
   }
 }
