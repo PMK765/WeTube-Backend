@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
+import ReactPlayer from 'react-player';
+
+const player_width = '100%';
+const player_height = '100%';
 
 class App extends Component {
 state = {
@@ -37,7 +41,9 @@ state = {
         <Row className = "video_groups">
           <Col className = "group_window" xs="2">.col</Col>
           
-          <Col className = "video_window" xs="10">.col</Col>
+          <Col className = "video_window" style={styles.player} margin={0} padding={0} xs="10">
+          <ReactPlayer className ="WeTube_Player"  width={player_width} height={player_height} fluid={false} url='https://www.youtube.com/watch?v=bGqvOscmYKE' />
+          </Col>
           
         </Row>
         <Row>
@@ -47,5 +53,10 @@ state = {
     );
   }
 }
-
+const styles = {
+  player: {
+    paddingLeft: 0,
+    paddingRight: 0
+}
+}
 export default App;
