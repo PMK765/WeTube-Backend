@@ -32,16 +32,34 @@ state = {
 
   render() {
     return (
+      
       <Container className ="mainContainer" fluid>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <Row  className ="header">
           <Col>
           <h1 className = "title"> Welcome to WeTube!</h1>
           </Col>
         </Row>
         <Row className = "video_groups">
-          <Col className = "group_window" xs="2">.col</Col>
+          <Col className = "group_window" style={styles.player} xs="2">
+          <div className ="search_area">
+             <form className = "video_search" fluid={false}>
+             <input type="text" className="resizedTextbox" fluid={false} name="name" defaultValue="Search for video to add to playlist"></input>
+             <button type="submit"><i class="fa fa-search"></i></button>
+             </form>
+          </div>
+          <div className ="action_buttons"> 
+          <button className= "playlist_button"type="button">Playlist</button>
+          <button className= "login_button"  type="button">Log in</button>
+          <button className= "groups_button"  type="button">Groups</button>
+          <button className= "users_button"  type="button">Users</button>
+          </div>
           
-          <Col className = "video_window" style={styles.player} margin={0} padding={0} xs="10">
+
+          </Col>
+
+          
+          <Col className = "video_window" style={styles.player} xs="10">
           <ReactPlayer className ="WeTube_Player"  width={player_width} height={player_height} fluid={false} url='https://www.youtube.com/watch?v=bGqvOscmYKE' />
           </Col>
           
