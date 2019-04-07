@@ -12,7 +12,7 @@
 }
 
 .video_groups{
-  height: 650px;
+  height: 65vh;
   position: relative;
   
 }
@@ -34,20 +34,20 @@
   top:30px;
 }
 .playlist_button{
-  width: 79.5px;
+  width: 8.5vh;
 }
 .login_button{
-  width: 79.5px;
+  width: 8.5vh;
 }
 .groups_button{
-  width: 79.5px;
+  width: 8.5vh;
 }
 .users_button{
-  width: 79.5px;
+  width: 8.5vh;
 }
 
 .resizedTextbox{
-   width: 287px;
+   width: 29.5vh;
 
 }
 .group_window{

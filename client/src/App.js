@@ -50,7 +50,7 @@ state = {
           </div>
           <div className ="action_buttons"> 
           <button className= "playlist_button"type="button">Playlist</button>
-          <button className= "login_button"  type="button">Log in</button>
+          <button className= "login_button"  type="button">Login</button>
           <button className= "groups_button"  type="button">Groups</button>
           <button className= "users_button"  type="button">Users</button>
           </div>
