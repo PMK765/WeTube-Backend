@@ -2,6 +2,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Container, Row, Col } from 'reactstrap';
+import ReactPlayer from 'react-player';
+
+const player_width = '100%';
+const player_height = '100%';
 
 class App extends Component {
 state = {
@@ -27,16 +32,31 @@ state = {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        // Render the newly fetched data inside of this.state.data 
-        <p className="App-intro">{this.state.data}</p>
-      </div>
+      <Container className ="mainContainer" fluid>
+        <Row  className ="header">
+          <Col>
+          <h1 className = "title"> Welcome to WeTube!</h1>
+          </Col>
+        </Row>
+        <Row className = "video_groups">
+          <Col className = "group_window" xs="2">.col</Col>
+          
+          <Col className = "video_window" style={styles.player} margin={0} padding={0} xs="10">
+          <ReactPlayer className ="WeTube_Player"  width={player_width} height={player_height} fluid={false} url='https://www.youtube.com/watch?v=bGqvOscmYKE' />
+          </Col>
+          
+        </Row>
+        <Row>
+          <Col>.col</Col>
+        </Row>
+      </Container>
     );
   }
 }
-
+const styles = {
+  player: {
+    paddingLeft: 0,
+    paddingRight: 0
+}
+}
 export default App;
