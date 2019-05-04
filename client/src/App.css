@@ -95,3 +95,30 @@
     transform: rotate(360deg);
   }
 }
+
+
+.container {
+  width: 100%;
+  height: 100%;
+  float: left;
+  border: 2px solid rgb(200,200,200);
+  background-color: rgb(200,250,200)
+}
+
+.card, .container {
+  display: inline-block;
+}
+
+.card {
+  /* float: right; */
+  height: 100%;
+}
+
+.card-block {
+  border: 2px solid rgb(200,200,200);
+  background-color: rgb(200,250,250)
+}
+
+#send {
+  width: 100%;
+}

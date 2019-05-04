@@ -4,7 +4,6 @@ import logo from './logo.svg';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import ReactPlayer from 'react-player';
-
 const player_width = '100%';
 const player_height = '100%';
 
@@ -14,6 +13,10 @@ state = {
   };
 
   componentDidMount() {
+    const chatScript = document.createElement("script");
+    chatScript.src="./chat-utils.js";
+    chatScript.async = true;
+    document.body.appendChild(chatScript);
       // Call our fetch function below once the component mounts
     this.callBackendAPI()
       .then(res => this.setState({ data: res.express }))
@@ -32,9 +35,10 @@ state = {
 
   render() {
     return (
-      
+
       <Container className ="mainContainer" fluid>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
         <Row  className ="header">
           <Col>
           <h1 className = "title"> Welcome to WeTube!</h1>
@@ -54,22 +58,41 @@ state = {
           <button className= "groups_button"  type="button">Groups</button>
           <button className= "users_button"  type="button">Users</button>
           </div>
-          
-
           </Col>
-
           
           <Col className = "video_window" style={styles.player} xs="10">
           <ReactPlayer className ="WeTube_Player"  width={player_width} height={player_height} fluid={false} url='https://www.youtube.com/watch?v=bGqvOscmYKE' />
           </Col>
-          
+        
         </Row>
-        <Row>
-          <Col>.col</Col>
-        </Row>
+          <div class="container">
+          <div class="row">
+            <div class="col-md-6 offset-md-3 col-sm-12">
+                <h1 class="text-center">
+                    WeTubeChat
+                    <button id="clear" class="btn btn-danger" onClick = {this.alerter} >Clear</button>
+                </h1>
+                <div id="status"></div>
+                <div class="chat">
+                    <input type="text" id="username" class="form-control" placeholder="Enter Name"/>
+                    <br/>
+                    <textarea id="textarea" class="form-control" placeholder="Enter Message"></textarea>
+                    <button id="send" class="send-message" class="btn btn-danger">Send</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="messages" class="card-block">Live Comment Feed</div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js">
+        </script>
+
       </Container>
     );
   }
+
+
 }
 const styles = {
   player: {
