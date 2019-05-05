@@ -9,8 +9,8 @@
     "react-player": "^1.10.0",
     "react-scripts": "2.1.8",
     "reactstrap": "^8.0.0",
-    "mongodb": "^2.2.33",
-    "socket.io": "^2.2.0"
+    "stream-chat": "^0.13.1",
+    "stream-chat-react": "^0.5.5"
   },
   "scripts": {
     "start": "react-scripts start",

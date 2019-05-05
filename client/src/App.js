@@ -4,8 +4,34 @@ import logo from './logo.svg';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import ReactPlayer from 'react-player';
+import Script from '@gumgum/react-script-tag';
+import { Chat, Channel, ChannelHeader, Window } from 'stream-chat-react';
+import { MessageList, MessageInput, MessageLivestream } from 'stream-chat-react';
+import { MessageInputSmall, Thread } from 'stream-chat-react';
+import { StreamChat } from 'stream-chat';
+import 'stream-chat-react/dist/css/index.css';
+
+const chatClient = new StreamChat('qk4nn7rpcn75');
+const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibGF0ZS10cnV0aC02In0.tt2oDrah6zuxEqsTBj_gyaLShGoA19yYfa2nGIUZFCI';
+
+chatClient.setUser(
+  {
+    id: 'late-truth-6',
+    name: 'Late truth',
+    image: 'https://getstream.io/random_svg/?id=late-truth-6&name=Late+truth'
+  },
+  userToken,
+);
+
+const channel = chatClient.channel('livestream', 'spacex', {
+  image: 'https://goo.gl/Zefkbx',
+  name: 'WeTube',
+});
+
+
 const player_width = '100%';
 const player_height = '100%';
+const chat_width = '100%';
 
 class App extends Component {
 state = {
@@ -38,7 +64,7 @@ state = {
 
       <Container className ="mainContainer" fluid>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></Script>
         <Row  className ="header">
           <Col>
           <h1 className = "title"> Welcome to WeTube!</h1>
@@ -65,32 +91,24 @@ state = {
           </Col>
         
         </Row>
-          <div class="container">
-          <div class="row">
-            <div class="col-md-6 offset-md-3 col-sm-12">
-                <h1 class="text-center">
-                    WeTubeChat
-                    <button id="clear" class="btn btn-danger" onClick = {this.alerter} >Clear</button>
-                </h1>
-                <div id="status"></div>
-                <div class="chat">
-                    <input type="text" id="username" class="form-control" placeholder="Enter Name"/>
-                    <br/>
-                    <textarea id="textarea" class="form-control" placeholder="Enter Message"></textarea>
-                    <button id="send" class="send-message" class="btn btn-danger">Send</button>
-                  </div>
-              </div>
-          </div>
+        <Row style={{marginLeft: '0px', marginRight: '0px', paddingLeft: '0px', paddingRight: '0px'}} >
+        <div class="container" style={{minWidth: '98vw', maxHeight:'26vh', overflowY: 'hidden', marginLeft: '0px', marginRight: '0px'}}>
+          <Chat client={chatClient} theme={'livestream dark'} style={{width: '100vw'}}>
+            <Channel channel={channel} Message={MessageLivestream}>
+              <Window hideOnThread>
+                <ChannelHeader live />
+                <MessageList />
+                <MessageInput Input={MessageInputSmall} focus />
+              </Window>
+              <Thread fullWidth />
+            </Channel>
+          </Chat>
         </div>
-        <div class="card">
-          <div id="messages" class="card-block">Live Comment Feed</div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js">
-        </script>
-
+        </Row>
       </Container>
     );
   }
+
 
 
 }
