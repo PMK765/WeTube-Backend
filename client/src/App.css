@@ -12,7 +12,7 @@
 }
 
 .video_groups{
-  height: 650px;
+  height: 65vh;
   position: relative;
   
 }
@@ -21,7 +21,35 @@
   margin-left: 0%;
   padding-left: 0%;
 }
+.video_search{
 
+}
+
+.search_area{
+  position:absolute;
+}
+
+.action_buttons{
+  position:relative;
+  top:30px;
+}
+.playlist_button{
+  width: 8.5vh;
+}
+.login_button{
+  width: 8.5vh;
+}
+.groups_button{
+  width: 8.5vh;
+}
+.users_button{
+  width: 8.5vh;
+}
+
+.resizedTextbox{
+   width: 29.5vh;
+
+}
 .group_window{
    border-style: solid;
    border-width: 1px;
@@ -66,4 +94,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.container {
+  border: 2px solid rgb(200,200,200);
+  background-color: rgb(200,250,200)
 }
