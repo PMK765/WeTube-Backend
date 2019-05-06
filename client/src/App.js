@@ -17,7 +17,7 @@ const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibGF0ZS10
 chatClient.setUser(
   {
     id: 'late-truth-6',
-    name: 'Late truth',
+    name: 'Peter Kemper',
     image: 'https://getstream.io/random_svg/?id=late-truth-6&name=Late+truth'
   },
   userToken,
