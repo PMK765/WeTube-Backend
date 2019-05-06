@@ -24,30 +24,39 @@
 .video_search{
 
 }
-
+.search_divide{
+ color:black;
+}
 .search_area{
   position:absolute;
 }
+.search_list{
+  margin-top: 10px;
+  overflow-y: scroll;
 
+}
 .action_buttons{
   position:relative;
   top:30px;
 }
 .playlist_button{
-  width: 8.5vh;
+  width: 8.1vh;
 }
 .login_button{
-  width: 8.5vh;
+  width: 8.1vh;
 }
 .groups_button{
-  width: 8.5vh;
+  width: 8.3vh;
 }
 .users_button{
-  width: 8.5vh;
+  width: 8.3vh;
 }
 
+.searchButton{
+  width: 3.6vh;
+}
 .resizedTextbox{
-   width: 29.5vh;
+   width: 29vh;
 
 }
 .group_window{
