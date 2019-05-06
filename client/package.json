@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
+    "react-native": "0.55.4",
     "react-player": "^1.10.0",
     "react-scripts": "2.1.8",
     "reactstrap": "^8.0.0",
     "stream-chat": "^0.13.1",
-    "stream-chat-react": "^0.5.5"
+    "stream-chat-react": "^0.5.5",
+    "youtube-api-search": "0.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
