@@ -250,8 +250,8 @@ constructor(props){
           </Col>
         
         </Row>
-        <Row style={{marginLeft: '0px', marginRight: '0px', paddingLeft: '0px', paddingRight: '0px'}} >
-        <div class="container" style={{minWidth: '98vw', maxHeight:'26vh', overflowY: 'hidden', marginLeft: '0px', marginRight: '0px'}}>
+        <Row style={{marginLeft: '0px', marginRight: '0px', paddingLeft: '0px', paddingRight: '0px', position: 'absolute', bottom: '0px' }} >
+        <div class="container" style={{minWidth: '98vw', maxHeight:'22vh', overflowY: 'hidden', marginLeft: '0px', marginRight: '0px', position: 'absolute', bottom: '0px'}}>
           <Chat client={chatClient} theme={'livestream dark'} style={{width: '100vw'}}>
             <Channel channel={channel} Message={MessageLivestream}>
               <Window hideOnThread>
