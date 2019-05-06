@@ -54,8 +54,10 @@ constructor(props){
     videoID: videourl,
     data: null,
     modalIsOpen: false,
+    modalLogIsOpen: false,
     addGroupModalIsOpen: false
   }
+  
   this.handleSubmit = this.handleSubmit.bind(this);
   this.updateInput = this.updateInput.bind(this);
   this.updateVideo = this.updateVideo.bind(this);
@@ -189,6 +191,31 @@ constructor(props){
             <Button>Create Group</Button>
           </Form>
         </Modal>
+        <Modal
+          contentLabel="Add Login Modal"
+          isOpen={this.state.modalLogIsOpen}
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}>
+          <button className="float-right" onClick={() => this.setState({ modalLogIsOpen: false })}>X</button>
+
+          <h1> Login Page</h1>
+          <Form>
+            <FormGroup>
+              <Input
+                id="nameInput"
+                type="text"
+                placeholder="Username"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Input
+                type="text"
+                placeholder="Password"
+              />
+            </FormGroup>
+            <Button>Login</Button>
+          </Form>
+        </Modal>
 
         <Row className = "video_groups">
           <Col className = "group_window" style={styles.player} xs="2">
@@ -205,7 +232,7 @@ constructor(props){
        
         
           <button className= "playlist_button"type="button">Playlist</button>
-          <button className= "login_button"  type="button">Login</button>
+          <button className= "login_button"  type="button"onClick={() => this.setState({ modalLogIsOpen: true })}>Login</button>
           <button className= "groups_button"  type="button" onClick={() => this.setState({ modalIsOpen: true })}> Groups</button>
           <button className= "users_button"  type="button">Users</button>
           </div>
