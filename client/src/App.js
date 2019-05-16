@@ -55,6 +55,7 @@ constructor(props){
     data: null,
     modalIsOpen: false,
     modalLogIsOpen: false,
+    modalSignUpisOpen: false,
     addGroupModalIsOpen: false
   }
   
@@ -63,12 +64,7 @@ constructor(props){
   this.updateVideo = this.updateVideo.bind(this);
   //this.videoID = this.videoID.bind(this);
 }
-//state = {
-    //data: null,
-    //term: '',
-    //videos: "https://youtu.be/bGqvOscmYKE" ,
-    //selectedVideo: "https://youtu.be/bGqvOscmYKE" 
-  //};
+
   updateInput(event){
     this.setState({term : event.target.value})
   }
@@ -102,21 +98,8 @@ constructor(props){
     chatScript.src="./chat-utils.js";
     chatScript.async = true;
     document.body.appendChild(chatScript);
-      // Call our fetch function below once the component mounts
-    //this.callBackendAPI()
-      //.then(res => this.setState({ data: res.express }))
-      //.catch(err => console.log(err));
   }
-    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-  //callBackendAPI = async () => {
-    //const response = await fetch('/express_backend');
-    //const body = await response.json();
 
-    //if (response.status !== 200) {
-      //throw Error(body.message) 
-    //}
-    //return body;
-  //};
 
   render() {
     return (
@@ -191,13 +174,23 @@ constructor(props){
             <Button>Create Group</Button>
           </Form>
         </Modal>
+
+        <Modal 
+          contentLabel="Add Signup Modal"
+          isOpen={this.state.modalSignUpisOpen}
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}>
+          <button className="float-right" onClick={() => this.setState({ modalSignUpisOpen: false })}>X</button>
+          <h1> Signup Page</h1>    
+        </Modal>
+
         <Modal
           contentLabel="Add Login Modal"
           isOpen={this.state.modalLogIsOpen}
           shouldCloseOnEsc={true}
           shouldCloseOnOverlayClick={true}>
           <button className="float-right" onClick={() => this.setState({ modalLogIsOpen: false })}>X</button>
-
+          
           <h1> Login Page</h1>
           <Form>
             <FormGroup>
@@ -231,7 +224,7 @@ constructor(props){
           <div className ="action_buttons"> 
        
         
-          <button className= "playlist_button"type="button">Playlist</button>
+          <button className= "signup_button"type="button"onClick={() => this.setState({ modalSignUpisOpen: true })}>Sign Up</button>
           <button className= "login_button"  type="button"onClick={() => this.setState({ modalLogIsOpen: true })}>Login</button>
           <button className= "groups_button"  type="button" onClick={() => this.setState({ modalIsOpen: true })}> Groups</button>
           <button className= "users_button"  type="button">Users</button>
