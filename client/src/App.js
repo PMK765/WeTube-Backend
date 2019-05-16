@@ -55,9 +55,10 @@ constructor(props){
     addGroupModalIsOpen: false,
     username: '',
     password: '',
+    accountCreated: false,
   }
   
-  this.handleSubmit = this.handleSubmit.bind(this);
+  this.handleSubmit2 = this.handleSubmit2.bind(this);
   this.updateInput = this.updateInput.bind(this);
   this.updateVideo = this.updateVideo.bind(this);
   //this.videoID = this.videoID.bind(this);
@@ -69,7 +70,7 @@ constructor(props){
   updateVideo(data){
     this.setState({videoID: data})
   }
-  handleSubmit(){
+  handleSubmit2(){
     console.log(this.state.term);
     this.searchYT(this.state.term);
   }
@@ -98,12 +99,18 @@ constructor(props){
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    if(this.state.password.length < 8 && this.state.password !== '') {
-      alert('Password must be at least 8 characters long!');
-      return;
+    if(this.state.accountCreated === false) {
+      e.preventDefault();
+      if(this.state.password === '') {
+        alert('Must enter a password!');
+        return;
+      }
+      if(this.state.password.length < 8) {
+        alert('Password must be at least 8 characters long!');
+        return;
+      }
+      alert('New Account Created for '+this.state.username);
     }
-    alert('New Account Created for '+this.state.username);
   }
 
 
@@ -249,7 +256,7 @@ constructor(props){
              <form className = "video_search"  >
              <input type="text" onChange={this.updateInput} className="resizedTextbox" name="name" placeholder="Search for video">
              </input>
-             <button type="button" className="searchButton" onClick={this.handleSubmit}><i class="fa fa-search"></i></button>
+             <button type="button" className="searchButton" onClick={this.handleSubmit2}><i class="fa fa-search"></i></button>
              </form>
           </div>
 
