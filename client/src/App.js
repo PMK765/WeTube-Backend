@@ -32,11 +32,7 @@ const channel = chatClient.channel('livestream', 'spacex', {
 const player_width = '100%';
 const player_height = '100%';
 const chat_width = '100%';
-//import VideoList from './VideoList';
-//import { ScrollView } from 'react-native';
 
-//import { EventEmitter } from 'events';
-//import YoutubeAPI from './YoutubeAPI'
 Modal.setAppElement("#root");
 
 const KEY = 'AIzaSyARgwTFLILR2yHEqAcGpGNL4Yi0h_I83yo';
@@ -56,7 +52,9 @@ constructor(props){
     modalIsOpen: false,
     modalLogIsOpen: false,
     modalSignUpisOpen: false,
-    addGroupModalIsOpen: false
+    addGroupModalIsOpen: false,
+    username: '',
+    password: '',
   }
   
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -91,6 +89,18 @@ constructor(props){
         });
     }
 }
+
+  handleChange = (e) => {
+    console.log(e.target.id);
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  }
 
 
   componentDidMount() {
@@ -182,6 +192,25 @@ constructor(props){
           shouldCloseOnOverlayClick={true}>
           <button className="float-right" onClick={() => this.setState({ modalSignUpisOpen: false })}>X</button>
           <h1> Signup Page</h1>    
+          <Form>
+            <FormGroup>
+              <Input
+                id="username"
+                type="text"
+                placeholder="Username"
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Input
+                id='password'
+                type="text"
+                placeholder="Password"
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+            <Button onClick={this.handleSubmit}>Signup</Button>
+          </Form>
         </Modal>
 
         <Modal
