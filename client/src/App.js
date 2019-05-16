@@ -99,7 +99,15 @@ constructor(props){
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    if(this.state.password === '') {
+      alert('Must enter a password!');
+      return;
+    }
+    if(this.state.password.length < 8) {
+      alert('Password must be at least 8 characters long!');
+      return;
+    }
+    alert('New Account Created for '+this.state.username);
   }
 
 
