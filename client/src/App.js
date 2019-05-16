@@ -99,11 +99,7 @@ constructor(props){
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if(this.state.password === '') {
-      alert('Must enter a password!');
-      return;
-    }
-    if(this.state.password.length < 8) {
+    if(this.state.password.length < 8 && this.state.password !== '') {
       alert('Password must be at least 8 characters long!');
       return;
     }
